@@ -21,13 +21,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('admin_password_reset_tokens', function (Blueprint $table) {
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        Schema::create('sessions', function (Blueprint $table) {
+        Schema::create('user_sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
@@ -43,7 +43,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('admins');
-        Schema::dropIfExists('admin_password_reset_tokens');
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('user_sessions');
     }
 };

@@ -5,6 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $fillable = ['name', 'area', 'ip_address'];
+    protected $fillable = ['name', 'area', 'ip_address', 'mac_address'];
     protected $hidden = [];
 }
